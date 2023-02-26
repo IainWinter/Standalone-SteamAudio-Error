@@ -14,7 +14,14 @@
 // 
 //  I removed the reverb effect to make this more simple
 //
+//
 
+// Enable this to cause the error (switches on reflections in fmod plugin)
+//
+bool gCauseError = true;
+
+// Stop the main loop if fmod has run into an error
+//
 bool gHasError = false;
 
 void fa(int result)
@@ -45,7 +52,7 @@ int main()
 
 	fa(fmodSystem->initialize(16, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, nullptr));
 
-	// Load Phonon plugin
+	// Load phonon plugin
 
 	FMOD::System* fmodCore;
 	fa(fmodSystem->getCoreSystem(&fmodCore));
@@ -219,7 +226,10 @@ int main()
 		fa(group->getDSP(0, &dsp)); // assumes 0 is the Steam Audio Spatializer
 
 		dsp->setParameterInt(APPLY_OCCLUSION, 1);
-		dsp->setParameterBool(APPLY_REFLECTIONS, true);
+
+		// Setting this to true causes the error as it applies a reflection effect
+
+		dsp->setParameterBool(APPLY_REFLECTIONS, gCauseError);
 
 		// Docs say to set this to a pointer to the output,
 		// but it seems like the plugins actually expect the source and read the
