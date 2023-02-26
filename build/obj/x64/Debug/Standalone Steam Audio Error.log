@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Iain\Desktop\SimpleDarkGame\standalone_steamaudio_error\src\main.cpp(123,2): warning C4102: 'https': unreferenced label
+  Standalone Steam Audio Error.vcxproj -> C:\Users\Iain\Desktop\SimpleDarkGame\standalone_steamaudio_error\bin\Standalone Steam Audio Error.exe
