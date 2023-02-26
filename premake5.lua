@@ -16,13 +16,13 @@ workspace "Standalone Steam Audio Error"
 
 		includedirs {
 			"src",
-			"vendor/fmod/include",
+			"vendor/shared/include",
 			"vendor/fmod_steamaudio/include"
 		}
 
 		libdirs {
-			"vendor/fmod/lib",
-			"vendor/fmod_steamaudio/lib"
+			"vendor/shared/bin",
+			"vendor/fmod_steamaudio/bin"
 		}
 
 		links {
@@ -42,3 +42,5 @@ workspace "Standalone Steam Audio Error"
 
 		filter "configurations:Release"
 			optimize "On"
+
+include "/vendor/fmod_steamaudio"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="shared">
+      <UniqueIdentifier>{9C5CB11B-88FE-DBF1-71B9-EF455DFA6242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared\include">
+      <UniqueIdentifier>{0F60AFEB-FB2D-A3F1-E4C1-1318D02E7F56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared\include\phonon">
+      <UniqueIdentifier>{307C4AC7-9CE8-05C2-65DC-9D1FD107282A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared\include\phonon_fmod">
+      <UniqueIdentifier>{157F209C-018F-CC6C-6A48-318B5677BB05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\shared\include\phonon\phonon.h">
+      <Filter>shared\include\phonon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon\phonon_interfaces.h">
+      <Filter>shared\include\phonon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon\phonon_version.h">
+      <Filter>shared\include\phonon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon_fmod\dsp_names.h">
+      <Filter>shared\include\phonon_fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon_fmod\library.h">
+      <Filter>shared\include\phonon_fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon_fmod\pch.h">
+      <Filter>shared\include\phonon_fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon_fmod\steamaudio_fmod.h">
+      <Filter>shared\include\phonon_fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shared\include\phonon_fmod\steamaudio_fmod_version.h">
+      <Filter>shared\include\phonon_fmod</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\library.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mix_return_effect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\reverb_effect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialize_effect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\steamaudio_fmod.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -2,9 +2,9 @@
 #include "fmod/fmod_studio.hpp"
 #include "fmod/fmod_errors.h"
 
-#include "fmod_steamaudio/phonon.h"
-#include "fmod_steamaudio/steamaudio_fmod.h"
-#include "fmod_steamaudio/steamaudio_dsp_param_names.h"
+#include "phonon/phonon.h"
+#include "phonon_fmod/steamaudio_fmod.h"
+#include "phonon_fmod/dsp_names.h"
 
 #include <cstdio>
 
@@ -48,7 +48,7 @@ int main()
 	// Create FMOD Studio system
 
 	FMOD::Studio::System* fmodSystem;
-	FMOD::Studio::System::create(&fmodSystem);
+	fa(FMOD::Studio::System::create(&fmodSystem));
 
 	fa(fmodSystem->initialize(16, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, nullptr));
 
@@ -127,7 +127,7 @@ int main()
 	simulationSettings.frameSize = audioSettings.frameSize;
 
 	// here is maxOrder
-	https://github.com/ValveSoftware/steam-audio/issues/243#issuecomment-1444127503
+	// https://github.com/ValveSoftware/steam-audio/issues/243#issuecomment-1444127503
 	simulationSettings.maxOrder = 1;
 
 	iplSimulatorCreate(iplSystem, &simulationSettings, &iplSimulator);
@@ -225,17 +225,17 @@ int main()
 		fa(fmodExampleAudioInstance->getChannelGroup(&group));
 		fa(group->getDSP(0, &dsp)); // assumes 0 is the Steam Audio Spatializer
 
-		dsp->setParameterInt(APPLY_OCCLUSION, 1);
+		dsp->setParameterInt(SpatializeEffect::APPLY_OCCLUSION, 1);
 
 		// Setting this to true causes the error as it applies a reflection effect
 
-		dsp->setParameterBool(APPLY_REFLECTIONS, gCauseError);
+		dsp->setParameterBool(SpatializeEffect::APPLY_REFLECTIONS, gCauseError);
 
 		// Docs say to set this to a pointer to the output,
 		// but it seems like the plugins actually expect the source and read the
 		// outputs themselves
 
-		dsp->setParameterData(SIMULATION_OUTPUTS, (void**)&iplExampleSource, sizeof(IPLSource*));
+		dsp->setParameterData(SpatializeEffect::SIMULATION_OUTPUTS, (void**)&iplExampleSource, sizeof(IPLSource*));
 
 		// Tick FMOD
 
